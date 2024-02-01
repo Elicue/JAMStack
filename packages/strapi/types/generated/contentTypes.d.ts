@@ -362,6 +362,39 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiRecipeRecipe extends Schema.CollectionType {
+  collectionName: 'recipes';
+  info: {
+    singularName: 'recipe';
+    pluralName: 'recipes';
+    displayName: 'Recipes';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText;
+    slug: Attribute.UID & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::recipe.recipe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::recipe.recipe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -778,6 +811,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::recipe.recipe': ApiRecipeRecipe;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
