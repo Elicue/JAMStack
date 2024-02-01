@@ -3,11 +3,14 @@
 
 const { find } = useStrapi();
 
-const { data: recipes, pending, error } = await useAsyncData('recipes', () => $fetch('http://localhost:1337/api/recipes?populate=*'));
+// const { data: recipes, pending, error } = await useAsyncData('recipes', () => $fetch('http://localhost:1337/api/recipes?populate=*'));
+// console.log('recipes', recipes);
+
+const { data: recipes } = await find('recipes', { populate: '*' });
 console.log('recipes', recipes);
 
 onMounted(() => {
-  console.log(recipes, pending, error);
+  console.log(recipes);
 });
 
 </script>
@@ -28,10 +31,11 @@ onMounted(() => {
 
     <div v-if="recipes">
       <ul class="grid grid-cols-4">
-        <div v-for="recipe in recipes.data" :key="recipe.id" class="border-solid border-2 border-black w-fit p-6 m-y-3">
-          <li class="list-none"> {{ recipe.title }} </li>
+        <div v-for="recipe in recipes" :key="recipe.id" class="border-solid border-2 border-black w-fit p-6 m-y-3">
+          <li @click="$router.push(`/recipes/${recipe.slug}`)" class="list-none"><nuxt-link to="">{{ recipe.title
+          }}</nuxt-link></li>
           <li class="list-none"> {{ recipe.description }} </li>
-          </div>
+        </div>
       </ul>
     </div>
   </div>
