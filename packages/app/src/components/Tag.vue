@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import Tag from '~/components/Tag.vue';
 
 // import { useAsyncData } from "../../.nuxt/imports";
 
@@ -18,10 +17,7 @@ const tags = recipe[0].tags;
 </script>
 
 <template>
-  <div v-if="recipe">
-    <h1>{{ recipe[0].title }}</h1>
-    <p>{{ recipe[0].description }}</p>
-    <Tag v-for="tag in tags" :key="tag.id" :tag="tag" />
-
+  <div v-if="recipe" class="bg-red p-x-3 p-y-1 w-fit">
+    <p>{{ tags[0].title }}</p>
   </div>
 </template>
