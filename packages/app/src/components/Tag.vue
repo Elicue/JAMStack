@@ -17,7 +17,7 @@ const tags = recipe[0].tags;
 </script>
 
 <template>
-  <div v-if="recipe" class="bg-red p-x-3 p-y-1 w-fit">
+  <div v-if="recipe" class="bg-[#f6c944] bg-opacity-50 p-x-3 p-y-1 w-fit">
     <p>{{ tags[0].title }}</p>
   </div>
 </template>
