@@ -18,7 +18,7 @@ const tags = recipe[0].tags;
 </script>
 
 <template>
-  <div v-if="recipe" class="bg-[#f3f1f2] overflow-x-hidden flex flex-row h-[97vh] p-4 gap-4">
+  <div v-if="recipe" class="bg-[#f3f1f2] overflow-x-hidden flex flex-row h-[100vh] p-4 gap-4">
     <div class="parent w-[50%] h-full flex flex-col relative">
       <li @click="$router.push(`/`)"
               class="list-none absolute text-xl bg-[#f6c944] p-x-5 p-y-1 tracking-wider m-y-3 rounded-lg m-4 flex flex-row items-center hover:cursor-pointer">Back to home page <img class="w-10" src="../../assets/arrow-b.png" alt=""></li>
@@ -26,7 +26,7 @@ const tags = recipe[0].tags;
     </div>
 
     <div class="parent w-[50%] h-full flex flex-col gap-4 justify-between">
-      <div class="infos flex flex-col gap-0">
+      <div class="infos flex flex-col gap-4">
         <div class="flex flex-row items-center justify-between">
           <h1 class="text-[2.3rem] tracking-wider">{{ recipe[0].title }}</h1>
           <p class="text-[#a89144] border-[#a89144] border-solid border-2 p-4 rounded-xl bg-[#a89144] bg-opacity-25 font-bold">{{ recipe[0].serving }}</p>
@@ -37,7 +37,7 @@ const tags = recipe[0].tags;
 
 
       <div class="flex flex-col h-[70vh] gap-4">
-        <h2 class="text-[1.5rem] font-bold">Ingredients</h2>
+        <h2 class="text-[1.7rem] font-bold">Ingredients</h2>
         <div class="flex flex-col overflow-y-scroll gap-4">
           <ul v-for="(ingredient, index) in recipe[0].ingredients" :key="index"
             class="flex flex-col bg-white rounded-md p-4 m-0 ">
