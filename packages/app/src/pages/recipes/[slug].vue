@@ -28,7 +28,7 @@ const tags = recipe[0].tags;
     <div class="parent w-[50%] h-full flex flex-col gap-4 justify-between">
       <div class="infos flex flex-col gap-4">
         <div class="flex flex-row items-center justify-between">
-          <h1 class="text-[2.3rem] tracking-wider">{{ recipe[0].title }}</h1>
+          <h1 class="text-[2.5rem] tracking-wider">{{ recipe[0].title }}</h1>
           <p class="text-[#a89144] border-[#a89144] border-solid border-2 p-4 rounded-xl bg-[#a89144] bg-opacity-25 font-bold">{{ recipe[0].serving }}</p>
         </div>
         <p class="text-[1rem] leading-6 tracking-wider">{{ recipe[0].description }}</p>
@@ -74,6 +74,8 @@ const tags = recipe[0].tags;
     h1 {
       letter-spacing: normal;
       margin: 0;
+      font-size: 2rem !important;
+      margin-bottom: 1rem;
     }
 
     .object-cover {

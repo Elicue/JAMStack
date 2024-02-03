@@ -59,7 +59,7 @@ onMounted(() => {
     </header>
 
     <div v-if="recipes" id="recipes" class="z-10 flex w-full">
-      <ul class="grid grid-cols-4 gap-6 w-full p-0">
+      <ul class="grid grid-cols-4 gap-6 gap-y-1 w-full p-0">
         <div v-for="recipe in recipes" :key="recipe.id"
           class="w-fill p-6 m-y-3  gap-y-2 flex flex-col rounded-xl bg-white justify-between">
           <div class="w-fill flex flex-col">
