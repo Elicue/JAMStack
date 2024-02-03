@@ -17,7 +17,13 @@ const tags = recipe[0].tags;
 </script>
 
 <template>
-  <div v-if="recipe" class="bg-[#f6c944] bg-opacity-50 p-x-3 p-y-1 w-fit">
-    <p>{{ tags[0].title }}</p>
+  <div v-if="recipe" class="flex flex-row items-center gap-4">
+    <p
+      v-for="(tag, index) in tags"
+      :key="index"
+      class="bg-[#f6c944] bg-opacity-50 p-4 p-x-6 w-fit capitalize rounded-full"
+    >
+      {{ tag.title }}
+    </p>
   </div>
 </template>

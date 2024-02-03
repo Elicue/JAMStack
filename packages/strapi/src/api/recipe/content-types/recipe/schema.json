@@ -35,6 +35,15 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
+    },
+    "ingredients": {
+      "displayName": "ingredient",
+      "type": "component",
+      "repeatable": true,
+      "component": "test.ingredient"
+    },
+    "serving": {
+      "type": "string"
     }
   }
 }

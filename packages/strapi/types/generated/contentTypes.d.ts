@@ -785,6 +785,8 @@ export interface ApiRecipeRecipe extends Schema.CollectionType {
     slug: Attribute.UID & Attribute.Required;
     image: Attribute.Media;
     tags: Attribute.Relation<'api::recipe.recipe', 'oneToMany', 'api::tag.tag'>;
+    ingredients: Attribute.Component<'test.ingredient', true>;
+    serving: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
