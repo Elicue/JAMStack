@@ -80,13 +80,16 @@ onMounted(() => {
     <div v-if="search.sortedByTags" id="recipes" class="z-10 flex flex-col w-full">
       <div v-if="tags">
         <h2 class="list-none text-3xl p-y-4 tracking-wider">All our recipes</h2>
-        <ul class="tags flex flex-row gap-4 p-y-4">
-          <div v-for="tag in tags?.data" :key="tag.id">
-            <li :class="[search.queryTags.includes(tag.slug) ? 'bg-[#f6c944] p-4 p-x-6 w-fit capitalize rounded-full list-none hover:cursor-pointer' : 'bg-[#f6c944] bg-opacity-50 p-4 p-x-6 w-fit capitalize rounded-full list-none hover:cursor-pointer']" :title="tag.title" @click="addTag(tag.slug)">
-              {{ tag.title }}</li>
-            <!-- <Tag/> -->
-          </div>
-        </ul>
+        <div class="tags flex flex-row gap-4 items-center">
+          <ul class=" flex flex-row gap-4 p-y-4">
+            <div v-for="tag in tags?.data" :key="tag.id">
+              <li :class="[search.queryTags.includes(tag.slug) ? 'bg-[#f6c944] p-4 p-x-6 w-fit capitalize rounded-full list-none hover:cursor-pointer' : 'bg-[#f6c944] bg-opacity-50 p-4 p-x-6 w-fit capitalize rounded-full list-none hover:cursor-pointer']" @click="addTag(tag.slug)">
+                {{ tag.title }}</li>
+              <!-- <Tag/> -->
+            </div>
+          </ul>
+          <li class="bg-[#f6c944] bg-opacity-50 p-4 p-x-6 w-fit capitalize rounded-full list-none hover:cursor-pointer"  @click="search.resetTags">Reset selected tags</li>
+        </div>
       </div>
       <ul class="grid grid-cols-4 gap-6 gap-y-1 w-full p-0">
         <div v-for="recipe in search.sortedByTags" :key="recipe.id"
@@ -155,8 +158,7 @@ onMounted(() => {
   }
 
   .tags {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }</style>
