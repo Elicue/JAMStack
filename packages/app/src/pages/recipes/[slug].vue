@@ -19,16 +19,16 @@ const tags = recipe[0].tags;
 
 <template>
   <div v-if="recipe" class="bg-[#f3f1f2] overflow-x-hidden flex flex-row h-[97vh] p-4 gap-4">
-    <div class="w-[50%] h-full flex flex-col relative">
+    <div class="parent w-[50%] h-full flex flex-col relative">
       <li @click="$router.push(`/`)"
               class="list-none absolute text-xl bg-[#f6c944] p-x-5 p-y-1 tracking-wider m-y-3 rounded-lg m-4 flex flex-row items-center hover:cursor-pointer">Back to home page <img class="w-10" src="../../assets/arrow-b.png" alt=""></li>
-      <img :src="recipe[0].image[0].url" alt="image pate" class="w-full h-full object-cover rounded-3xl object-cover">
+      <img :src="recipe[0].image[0].url" alt="image pate" class="w-full h-full object-cover rounded-3xl ">
     </div>
 
-    <div class="w-[50%] h-full flex flex-col gap-4 justify-between">
+    <div class="parent w-[50%] h-full flex flex-col gap-4 justify-between">
       <div class="infos flex flex-col gap-0">
         <div class="flex flex-row items-center justify-between">
-          <h1 class="text-[2.3rem] leading-6 tracking-wider">{{ recipe[0].title }}</h1>
+          <h1 class="text-[2.3rem] tracking-wider">{{ recipe[0].title }}</h1>
           <p class="text-[#a89144] border-[#a89144] border-solid border-2 p-4 rounded-xl bg-[#a89144] bg-opacity-25 font-bold">{{ recipe[0].serving }}</p>
         </div>
         <p class="text-[1rem] leading-6 tracking-wider">{{ recipe[0].description }}</p>
@@ -51,3 +51,34 @@ const tags = recipe[0].tags;
 
   </div>
 </template>
+
+
+<style>
+  @media screen and (max-width: 768px) {
+    .overflow-x-hidden {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+    }
+
+    .parent {
+      width: 100%;
+    }
+
+    .infos div:nth-child(1){
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    h1 {
+      letter-spacing: normal;
+      margin: 0;
+    }
+
+    .object-cover {
+      height: 40vh;
+    }
+  }
+
+</style>
