@@ -13,9 +13,7 @@ const { data: recipe } = await find('recipes', { filters: { slug: route.params.s
 console.log('recipe', recipe);
 // console.log('tags', recipe[0].tags[0].title);
 
-const tags = recipe[0].tags;
-
-</script>
+</script> 
 
 <template>
   <div v-if="recipe" class="bg-[#f3f1f2] overflow-x-hidden flex flex-row h-[100vh] p-4 gap-4">

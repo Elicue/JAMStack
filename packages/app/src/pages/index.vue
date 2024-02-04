@@ -48,18 +48,9 @@ onMounted(() => {
 
     <nav class="flex flex-row justify-between w-full absolute top-0 p-6 p-r-16 p-y-12 z-100 items-center mx-auto">
       <img src="../assets/logo.png" alt="logo" class="logo w-[6vw]">
-      <div class="search flex flex-row justify-between items-center">
-        <div
-          class="p-4 p-x-6 p-r-40 border-none rounded-full border-white border-solid border-[3px] items-center flex flex-row gap-2">
-          <img src="../assets/search.svg" alt="search">
-          <input id="search" v-model="search.query"
-            class="border-none text-white outline-none text-[1rem] bg-transparent placeholder-white"
-            placeholder="Chercher une recette" type="search">
-        </div>
-      </div>
     </nav>
 
-    <header class=" h-[70vh] w-full relative justify-end flex flex-row items-end mb-12">
+    <header class=" h-[75vh] w-full relative justify-end flex flex-row items-end mb-12">
       <img src="../assets/bg.png" alt="fond" class="absolute w-full h-full object-cover rounded-3xl z-0">
       <div class="flex flex-row justify-between w-full items-end p-8">
         <img src="../assets/pasta.png" alt="pate" class="z-10 flex relative w-[40vw] h-fit pasta">
@@ -79,7 +70,16 @@ onMounted(() => {
 
     <div v-if="search.sortedByTags" id="recipes" class="z-10 flex flex-col w-full">
       <div v-if="tags">
-        <h2 class="list-none text-3xl p-y-4 tracking-wider">All our recipes</h2>
+      <div class="search flex flex-row justify-between items-center ">
+        <h2 class="list-none uppercase text-[2.5rem] p-y-3 tracking-wider">All our recipes</h2>
+        <div
+          class="p-4 p-x-6 p-r-40 border-none rounded-full border-[#141414] border-solid border-[3px] items-center flex flex-row gap-2 w-3/12">
+          <img src="../assets/search.svg" alt="search">
+          <input id="search" v-model="search.query"
+            class="border-none text-[#141414] outline-none text-[1rem] bg-transparent placeholder-[#141414] w-full"
+            placeholder="Searching for something ?" type="search">
+        </div>
+      </div>
         <div class="tags flex flex-row gap-4 items-center">
           <ul class=" flex flex-row gap-4 p-y-4">
             <div v-for="tag in tags?.data" :key="tag.id">
@@ -114,7 +114,7 @@ onMounted(() => {
               </li>
             </ul>
             <li @click="$router.push(`/recipes/${recipe.slug}`)"
-              class="border-solid border-2 border-black list-none p-y-3 bg-white tracking-wider m-y-3 hover:cursor-pointer hover:scale-105 transition-all text-center rounded-full">
+              class="border-solid border-2 border-[#141414] list-none p-y-3 bg-white tracking-wider m-y-3 hover:cursor-pointer hover:scale-105 transition-all text-center rounded-full">
               See more</li>
           </div>
         </div>
@@ -150,11 +150,20 @@ onMounted(() => {
   }
 
   .search {
-    width: 70%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
   }
 
   .search div {
+    width: 100%;
     padding: 0.5rem 1rem;
+    border: solid 2px #141414;
+  }
+
+  .search div input {
+    width: 100%;
   }
 
   .tags {
