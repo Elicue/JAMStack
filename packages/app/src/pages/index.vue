@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ITag } from '~/models/recipe.model';
+import type { ITag } from '~/models/recipes.model';
 // import { useAsyncData } from "../../.nuxt/imports";
 
 const { find } = useStrapi();
@@ -53,8 +53,8 @@ onMounted(() => {
     <header class=" h-[75vh] w-full relative justify-end flex flex-row items-end mb-12">
       <img src="../assets/bg.png" alt="fond" class="absolute w-full h-full object-cover rounded-3xl z-0">
       <div class="flex flex-row justify-between w-full items-end p-8">
-        <!-- <img src="../assets/pasta.png" alt="pate" class="z-10 flex relative w-[40vw] h-fit pasta"> -->
-        <!-- <img src="../assets/recipes.png" alt="recipes" class="recipe flex w-[22vw] h-[18vh] absolute bottom-8 right-8"> -->
+        <img src="../assets/pasta.png" alt="pate" class="z-10 flex relative w-[40vw] h-fit pasta">
+        <img src="../assets/recipes.png" alt="recipes" class="recipe flex w-[22vw] h-[18vh] absolute bottom-8 right-8">
         <div class="recipe flex flex-col relative h-fit w-[21.5vw] p-4 justify-between gap-5">
           <p class="z-10 text-[1.2rem] uppercase tracking-tighter"><span class="font-bold text-[2rem]">500
               +</span><br>amazing recipes</p>
